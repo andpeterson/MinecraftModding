@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:stick"
+  },
+  "result": "@modId@:@name@",
+  "experience": 5.0,
+  "cookingtime": 50
+}

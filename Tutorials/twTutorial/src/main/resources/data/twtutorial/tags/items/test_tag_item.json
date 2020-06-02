@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "twtutorial:item_one",
+    "twtutorial:item_two",
+    "minecraft:apple"
+  ]
+}

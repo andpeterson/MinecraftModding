@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "mythril_ore:mythril_ore"
+  },
+  "result": "mythril_ore:mythril",
+  "experience": 30.0,
+  "cookingtime": 500
+}

@@ -1,0 +1,29 @@
+@dev: false;
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: none;
+  width: 1920px;
+  height: 1080px;
+
+  & when (@dev = true){
+    background-color: pink
+  }
+}
+#title {
+  position: fixed;
+  width: 1500px;
+  height: 300px;
+  padding-left: 10px;
+  color: white;
+  font-size: 60px;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+
+  & when (@dev = true){
+    border: 2px dotted black
+  }
+}

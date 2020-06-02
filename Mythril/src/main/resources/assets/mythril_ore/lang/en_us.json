@@ -1,0 +1,19 @@
+{
+	"itemGroup.example_tab": "Example Tab",
+
+	"block.mythril_ore.mythril_ore": "Mythril Ore",
+	"block.mythril_ore.mythril_torch": "Mythril Torch",
+	
+	"item.mythril_ore.mythril": "Mythril",
+	
+	"item.mythril_ore.mythril_sword": "Mythril Sword",
+	"item.mythril_ore.mythril_shovel": "Mythril Shovel",
+	"item.mythril_ore.mythril_pickaxe": "Mythril Pickaxe",
+	"item.mythril_ore.mythril_axe": "Mythril Axe",
+	"item.mythril_ore.mythril_hoe": "Mythril Hoe",
+	
+	"item.mythril_ore.mythril_helmet": "Mythril Helmet",
+	"item.mythril_ore.mythril_chestplate": "Mythril Chestplate",
+	"item.mythril_ore.mythril_leggings": "Mythril Leggings",
+	"item.mythril_ore.mythril_boots": "Mythril Boots"
+}

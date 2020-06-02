@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:apple"},
+    { "item": "twtutorial:item_one"}
+  ],
+  "result": {
+    "item": "twtutorial:example_hoe"
+  }
+}

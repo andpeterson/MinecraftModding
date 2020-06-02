@@ -40,3 +40,30 @@
 
 # PDT-specific
 ./.buildpath
+/.metadata/
+
+# Resources
+/.resources/forge-1.15.2-31.2.0-mdk
+
+# Twitch Overlay
+*/preact/*/.DS_Store
+*/preact/*/node_modules
+*/preact/*/npm-debug.log
+*/preact/*/dist
+*/preact/*/package-lock.json
+*/preact/*/yarn.lock
+*/preact/*/.vscode
+*/preact/*/.idea
+*/preact/*/test/ts/**/*.js
+*/preact/*/coverage
+*/preact/*/*.sw[op]
+*/preact/*/*.log
+
+# Twitch Node
+*/node/*/node_modules
+*/node/*/build
+*/node/*/npm-debug.log
+*/node/*/.env
+*/node/*/.DS_Store
+
+*/vanillaResources/

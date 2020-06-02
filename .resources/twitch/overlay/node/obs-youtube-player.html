@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <link rel="stylesheet/less" type="text/css" href="./styles.less" />
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js" ></script>
+  </head>
+  <body id="dev">
+    <div id="title"><h1></h1></div>
+    <div id="info"></div>
+    <div id="player"></div>
+
+    <script async src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+      function info(txt) { return document.querySelector('#info').innerHTML = txt; }
+
+      //"https://obsyoutubeplayer.netlify.com/?watch?v=fx7wbQ7i1ug&list=PL6NdkXsPL07KiewBDpJC1dFvxEubnNOp1&volume=10&random=true&loop=true&w=0&h=0"
+      const url = new URL("https://obsyoutubeplayer.netlify.com/?watch?v=fx7wbQ7i1ug&list=PL6NdkXsPL07KiewBDpJC1dFvxEubnNOp1&volume=10&random=true&loop=true&w=0&h=0");
+
+      let songID = url.searchParams.get('watch?v') || window.location.href.split('/')[window.location.href.split('/').length - 1].split('?')[0];
+      let listID = url.searchParams.get('list');
+      let volume = url.searchParams.get('volume') || 25;
+      let width = url.searchParams.get('w') || 534;
+      let height = url.searchParams.get('h') || 300;
+      let startSeconds = url.searchParams.get('t');
+      let index = url.searchParams.get('index');
+      let random = url.searchParams.get('random') || true;
+      let loop = url.searchParams.get('loop') || true;
+      let fondu = url.searchParams.get('fondu') || true;
+      let debugMode = url.searchParams.get('debug') || false;
+      function debug(msg) {if (debugMode) {console.log(msg); }}
+      let hide = url.searchParams.get('hide') || false;
+      if (hide) { document.querySelector('#player').style.display = 'none'; }
+      debug(`insert : video = ${songID} | list = ${listID}`);
+
+      function onYouTubeIframeAPIReady() {
+        console.log('ready');
+        let player = new YT.Player('player', {
+        width: width,              
+        height: height, 
+
+        playerVars: {
+          autoplay: 1,        // Auto-play the video on load
+          controls: 0,        // Show pause/play buttons in player
+          showinfo: 0,        // Hide the video title
+          modestbranding: 1,  // Hide the Youtube Logo
+          disablekb: 1,
+          loop: 1,            // Run the video in a loop
+          fs: 0,              // Hide the full screen button
+          cc_load_policy: 0,  // Hide closed captions
+          iv_load_policy: 3,  // Hide the Video Annotations
+          autohide: 1,        // Hide video controls when playing
+          enablejsapi: 1
+        },
+
+        events: {
+          'onReady': function() {
+            if (songID != null && listID != null) {
+              debug('Choosen video first, songs inside list will be read after')
+              player.cueVideoById(songID);
+              player.cuePlaylist({
+                listType: 'playlist',
+                list: listID
+              });
+            }
+            if (listID != null && songID == null) {
+              debug('list only detected')
+              player.cuePlaylist({
+                listType: 'playlist',
+                list: listID
+              });
+            }
+            if (songID != null && listID == null) {
+              debug('Song only detected')
+              if (startSeconds > 0) { 
+                console.log(`Song will start at ${startSeconds}s`);
+              }
+              player.cueVideoById(songID);
+            }
+          },
+          'onStateChange': function (event) {
+            switch(event.data){
+              case -1:  // Not started
+                debug('Unable to start playing, the video might be unavailable or double-check the link you just entered');
+                var done = false;
+                setTimeout(() => {
+                  if (player.getCurrentTime() < 0 && !done) {
+                    debug(`Video skeeped, seems to not work`);
+                    player.nextVideo();
+                    done = true;
+                  }
+                }, 5000);
+                break;
+              case 0:   // Stopped
+                debug('Stopped');
+                onAir();
+                break;
+              case 1:   // Playing
+                document.querySelector('#title').childNodes[0].innerHTML = event.target.playerInfo.videoData.title;
+                document.querySelector('#info').innerHTML = '';
+                debug('Playing... ');
+                onAir();
+                break;
+              case 2:   // Pause
+                debug('Paused...');
+                onAir();
+                break;
+              case 3:
+                debug("Loading...");
+                onAir();
+                break;
+              case 5:   // In queue
+                debug('Queued...');
+                onAir();
+                break;
+              default:
+                debug("default Play");
+                onAir();              
+            }
+          }
+        }
+      });
+
+      function onAir() {
+        debug(`On air :
+              Start at => ${startSeconds}s
+              Volume => ${volume}
+              random => ${random}
+              loop   => ${loop}
+              Height => ${height}
+              Width => ${width}
+              HideVideo => ${hide}`);
+        
+        /*if (random === "false") {
+          console.log('Should play randomly');
+          player.nextVideo();
+          player.setShuffle(false); // NOT WORKING
+          //const selectedSong = Math.floor(Math.random() * (99 - 0)) + 0;
+          //console.log('SelectedSong : ' + selectedSong);
+          //player.playVideoAt(selectedSong);
+        }*/
+        
+        //if (loop === "true") {
+          player.setLoop(true);
+        //}
+        
+        player.playVideo();
+        player.setVolume(volume);
+
+        if (fondu) { player.setVolume(0); fondu(); }
+      }
+      
+      function fondu() {
+        let isPlaying = player.getCurrentTime();
+        let videoLenght = player.getDuration();
+        let i = 0;
+        
+        if (isPlaying != 0) {
+          var fonduUp = setInterval(() => {
+            player.setVolume(i);
+            i++;
+            debug(`fonduUp : vol${i}/${volume}`)
+            if (i == volume) {
+              window.clearInterval(fonduUp);
+            }
+          }, 200);
+        }
+        
+        setTimeout(() => {
+          if (i == volume) {
+            debug('début fondu de fin');
+            var fonduDown = setInterval(() => {
+              i--;
+              player.setVolume(i);
+              debug(`fonduDown : vol${i}`);
+              if (i == 0) {
+                window.clearInterval(fonduDown);
+              }
+            }, 200);
+          }
+        }, (videoLenght - 3) * 1000);
+      }
+    }
+    </script>
+  </body>
+</html>

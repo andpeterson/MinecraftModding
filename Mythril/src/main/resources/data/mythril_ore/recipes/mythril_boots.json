@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "m m",
+    "m m"
+  ],
+  "key": {
+    "s": {
+      "item": "mythril_ore:mythril"
+    }
+  },
+  "result": {
+    "item": "mythril_ore:mythril_boots"
+  }
+}

@@ -1,0 +1,24 @@
+{
+	"itemGroup.twtutorialtab": "TWtutorial Tab",
+	
+	"item.twtutorial.item_one": "Item One",
+	"item.twtutorial.item_two": "Item Two",
+	"item.twtutorial.andpeterson_tablet": "Andpeterson Tablet",
+	"item.twtutorial.example_food": "Example Food",
+	"item.twtutorial.special_item": "Special Item",
+	
+	"item.twtutorial.example_sword": "Example Sword",
+	"item.twtutorial.example_pickaxe": "Example Pickaxe",
+	"item.twtutorial.example_shovel": "Example Shovel",
+	"item.twtutorial.example_axe": "Example Axe",
+	"item.twtutorial.example_hoe": "Example Hoe",
+	
+	"item.twtutorial.test_helmet": "Test Helmet",
+	"item.twtutorial.test_chestplate": "Test Chestplate",
+	"item.twtutorial.test_leggings": "Test Leggings",
+	"item.twtutorial.test_boots": "Test Boots",
+
+	"block.twtutorial.example_block": "Example Block",
+	"block.twtutorial.special_block": "Special Block",
+	"block.twtutorial.quarry": "Quarry"
+}

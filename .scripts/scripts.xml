@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+
+<project name="Scripts">
+  <!-- <property name="modId" value="twtutorial" /> -->
+
+  <property name="templates" value="C:/Users/Andrew/Git/MinecraftModding/.scripts/templates" />
+
+  <property name="n" value="&#10;" />
+  <property name="t" value="&#x0009;" />
+
+  <scriptdef language="javascript" name="tovar">
+    <attribute name="prop" /> 
+    <attribute name="to" />
+      project.setProperty( attributes.get( "to" ), attributes.get( "prop" ).split(' ').join('') );
+  </scriptdef>
+
+  <scriptdef language="javascript" name="toreg">
+    <attribute name="prop" /> 
+    <attribute name="to" />
+      project.setProperty( attributes.get( "to" ), attributes.get( "prop" ).split(' ').join('_').toLowerCase() );
+  </scriptdef>
+
+  <macrodef name="uslang">
+    <attribute name="type"/>
+    <attribute name="reg"/>
+    <attribute name="name"/>
+    <sequential>
+      <replace file="src/main/resources/assets/${modId}/lang/en_us.json">
+        <replacefilter>
+          <replacetoken><![CDATA[
+}]]></replacetoken>
+          <replacevalue expandProperties="true">,${n}${t}"@{type}.${modId}.@{reg}": "@{name}"${n}}</replacevalue>
+        </replacefilter>
+      </replace>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="assetsjson">
+    <attribute name="reg"/>
+    <attribute name="file"/>
+    <attribute name="tofile"/>
+    <sequential>
+      <copy file="${templates}/@{file}" tofile="src/main/resources/assets/${modId}/@{tofile}">
+        <filterset>
+          <filter token="modId" value="${modId}" />
+          <filter token="name" value="@{reg}" />
+        </filterset>
+      </copy>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="datajson">
+    <attribute name="reg"/>
+    <attribute name="file"/>
+    <attribute name="tofile"/>
+    <sequential>
+      <copy file="${templates}/@{file}" tofile="src/main/resources/data/${modId}/@{tofile}">
+        <filterset>
+          <filter token="modId" value="${modId}" />
+          <filter token="name" value="@{reg}" />
+        </filterset>
+      </copy>
+    </sequential>
+  </macrodef>
+
+  <!-- TEST -->
+  <target name="Test">
+
+  </target>
+
+  <!-- ITEMS -->
+  <target name="newItem">
+    <!-- User Input -->
+    <input message="Insert Item Name" addproperty="itemName"/>
+    <tovar prop="${itemName}" to="itemVar" />
+    <toreg prop="${itemName}" to="itemReg" />
+    <!-- Item Model -->
+    <assetsjson reg="${itemReg}" file="item/model.item.json" tofile="models/item/${itemReg}.json" />
+    <!-- Item Texture -->
+    <copy file="${templates}/item/texture.png" tofile="src/main/resources/assets/${modId}/textures/items/${itemReg}.png" />
+    <!-- en_us -->
+    <uslang type="item" reg="${itemReg}" name="${itemName}" />
+    <!-- ItemInit -->
+    <replace file="src/main/java/com/andpeterson/${modId}/init/ItemInit.java">
+      <replacefilter>
+        <replacetoken>//@@Define</replacetoken>
+        <replacevalue expandProperties="true">public static final Item ${itemVar} = null;${n}${t}//@@Define</replacevalue>
+      </replacefilter>
+      <replacefilter>
+        <replacetoken>//@@Register</replacetoken>
+        <replacevalue expandProperties="true">event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("${itemReg}"));${n}${t}${t}//@@Register</replacevalue>
+      </replacefilter>
+    </replace>
+    <echo>
+MODIFIED:
+  - /models/item/ITEM.json
+  - /lang/en_us.json
+  - /textures/items/ITEM.png
+  - /init/ItemInit.java
+TODO:
+  - Reorganize en-us
+  - Item properties in ItemInit.java
+  - Create /textures/items/ITEM.json
+    </echo>
+  </target>
+
+
+  <!-- Tools -->
+  <target name="newTool">
+    <!-- User Input -->
+    <input message="Insert Tool Name" addproperty="toolName"/>
+    <tovar prop="${toolName}" to="toolVar" />
+    <toreg prop="${toolName}" to="toolReg" />
+    <!-- Item Model -->
+    <assetsjson reg="${toolReg}" file="tool/model.item.json" tofile="models/item/${toolReg}.json" />
+    <!-- Item Texture -->
+    <copy file="${templates}/tool/texture.png" tofile="src/main/resources/assets/${modId}/textures/items/${toolReg}.png" />
+    <!-- en_us -->
+    <uslang type="item" reg="${toolReg}" name="${toolName}" />
+    <!-- ItemInit -->
+    <replace file="src/main/java/com/andpeterson/${modId}/init/ItemInit.java">
+      <replacefilter>
+        <replacetoken>//@@Define</replacetoken>
+        <replacevalue expandProperties="true">public static final Item ${toolVar} = null;${n}${t}//@@Define</replacevalue>
+      </replacefilter>
+      <replacefilter>
+        <replacetoken>//@@Register</replacetoken>
+        <replacevalue expandProperties="true">event.getRegistry().register(new SwordItem(ItemTier.WOOD, 1, 1.0F, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("${toolReg}"));${n}${t}${t}//@@Register</replacevalue>
+      </replacefilter>
+    </replace>
+    <echo>
+MODIFIED:
+  - /models/item/TOOL.json
+  - /lang/en_us.json
+  - /textures/items/TOOL.png
+  - /init/ItemInit.java
+TODO:
+  - Reorganize en-us
+  - Tool properties in ItemInit.java
+  - Create /textures/items/TOOL.json
+    </echo>
+  </target>
+
+  <!-- BLOCKS -->
+  <target name="newBlock">
+    <!-- User Input -->
+    <input message="Insert Block Name" addproperty="blockName"/>
+    <tovar prop="${blockName}" to="blockVar" />
+    <toreg prop="${blockName}" to="blockReg" />
+    <!-- Item Model -->
+    <assetsjson reg="${blockReg}" file="block/model.item.json" tofile="models/item/${blockReg}.json" />
+    <!-- Block Model -->
+    <assetsjson reg="${blockReg}" file="block/model.block.json" tofile="models/block/${blockReg}.json" />
+    <!-- Blockstate -->
+    <assetsjson reg="${blockReg}" file="block/blockstate.json" tofile="blockstates/${blockReg}.json" />
+    <!-- Blockstate -->
+    <datajson reg="${blockReg}" file="block/loot_tables.json" tofile="loot_tables/blocks/${blockReg}.json" />
+    <!-- Block Texture -->
+    <copy file="${templates}/block/texture.png" tofile="src/main/resources/assets/${modId}/textures/blocks/${blockReg}.png" />
+    <!-- en_us -->
+    <uslang type="block" reg="${blockReg}" name="${blockName}" />
+    <!-- BlockInit -->
+    <replace file="src/main/java/com/andpeterson/${modId}/init/BlockInit.java">
+      <replacefilter>
+        <replacetoken>//@@Define</replacetoken>
+        <replacevalue expandProperties="true">public static final Block ${blockReg} = null;${n}${t}//@@Define</replacevalue>
+      </replacefilter>
+      <replacefilter>
+        <replacetoken>//@@RegisterBlock</replacetoken>
+        <replacevalue expandProperties="true">event.getRegistry().register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 15.0f).sound(SoundType.STONE)).setRegistryName("${blockReg}"));${n}${t}${t}//@@RegisterBlock</replacevalue>
+      </replacefilter>
+      <replacefilter>
+        <replacetoken>//@@RegisterItem</replacetoken>
+        <replacevalue expandProperties="true">event.getRegistry().register(new BlockItem(${blockReg}, new Item.Properties().maxStackSize(16).group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("${blockReg}"));${n}${t}${t}//@@RegisterItem</replacevalue>
+      </replacefilter>
+    </replace>
+    <echo>
+MODIFIED:
+  - /models/item/BLOCK.json
+  - /models/block/BLOCK.json
+  - /blockstates/BLOCK.json
+  - /loot_tables/blocks/BLOCK.json
+  - /lang/en_us.json
+  - /textures/blocks/BLOCK.png
+  - /init/ItemInit.java
+TODO:
+  - Reorganize en-us
+  - Block properties in BlockInit.java
+  - Block Drops In /loot_tables/blocks/BLOCK.json
+  - Create /textures/blocks/BLOCK.json
+    </echo>
+  </target>
+
+  <!-- CRAFTING SHAPED RECIPE -->
+  <target name="newShapedRecipe">
+    <!-- User Input -->
+    <input message="Insert Resulting Item Name" addproperty="recipeName"/>
+    <tovar prop="${recipeName}" to="recipeVar" />
+    <toreg prop="${recipeName}" to="recipeReg" />
+    <!-- Item Model -->
+    <datajson reg="${recipeReg}" file="recipes/crafting_shaped.json" tofile="recipes/${recipeReg}.json" />
+    <echo>
+MODIFIED:
+  - /recipes/RECIPE.json
+TODO:
+  - Add recipe to RECIPE.json
+    </echo>
+  </target>
+
+  <!-- CRAFTING SHAPELESS RECIPE -->
+  <target name="newShapelessRecipe">
+    <!-- User Input -->
+    <input message="Insert Resulting Item Name" addproperty="recipeName"/>
+    <tovar prop="${recipeName}" to="recipeVar" />
+    <toreg prop="${recipeName}" to="recipeReg" />
+    <!-- Item Model -->
+    <datajson reg="${recipeReg}" file="recipes/crafting_shapeless.json" tofile="recipes/${recipeReg}.json" />
+    <echo>
+MODIFIED:
+  - /recipes/RECIPE.json
+TODO:
+  - Add recipe to RECIPE.json
+    </echo>
+  </target>
+
+  <!-- SMELTING RECIPE -->
+  <target name="newSmeltingRecipe">
+    <!-- User Input -->
+    <input message="Insert Resulting Item Name" addproperty="recipeName"/>
+    <tovar prop="${recipeName}" to="recipeVar" />
+    <toreg prop="${recipeName}" to="recipeReg" />
+    <!-- Item Model -->
+    <datajson reg="${recipeReg}" file="recipes/smelting.json" tofile="recipes/${recipeReg}.json" />
+    <echo>
+MODIFIED:
+  - /recipes/RECIPE.json
+TODO:
+  - Add recipe to RECIPE.json
+    </echo>
+  </target>
+</project>

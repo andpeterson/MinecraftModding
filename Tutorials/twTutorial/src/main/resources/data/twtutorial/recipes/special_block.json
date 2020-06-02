@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gig",
+    "gig",
+    "eee"
+  ],
+  "key": {
+    "e": { "item": "twtutorial:example_block"},
+    "g": { "tag": "forge:ingots/gold"},
+    "i": { "tag": "forge:ingots/iron"}
+  },
+  "result": {
+    "item": "twtutorial:special_block"
+  }
+}

@@ -1,0 +1,104 @@
+MythrilOre:
+  Title: ~Chill~ Minecraft Modding | Mythril Ore
+  Notification: andpeterson went live! Lets defend ourselves with Mythril Armor!!
+  Category: Science & Technology
+  Panels:
+    Who is andpeterson:
+I'm a software developer by trade. I mostly develop web applications using JS.
+
+I've also played around with a ton of other technologies including Arduino, Unity, VR Development, Cloud Computing, IOT, ect...
+    Stream Description: 
+I'm keeping my mic off for my roommate 🤫 so feel free to say Hi in the chat! 👋
+
+If you have any mod suggestions or ideas I'd love to hear them! 📢
+
+I've been on the lookout for stream overlays, if you see any designs that you think would fit this channel I'd love to see them.
+
+Music is provided by [ChilledCow](https://www.youtube.com/watch?v=5qap5aO4i9A)
+    Plan: 
+Mythril ore is a post diamond ore that will dwarf the power of any of your diamond equipment!  ⚔️
+
+But the ore will only last an hour after being mined before it disappears!😨
+    Progress:
+✔️ New ore block ⬛
+✔️ New  ingot item 💎
+✔️ New ore block drops ingot ⛏️
+✔️ World ore generation 🗺️
+✔️ New tools 🛠️
+✔️ New armor 🛡️
+✔️ Tool crafting recipes 👷
+✔️ Armor crafting recipes 👷
+❌ Disappear logic ☁️
+❌ Transfer timer on crafting ⌚
+✔️ Mythril Torches 💡
+❌ Mythril Block (why would you even craft this) 🌟
+
+TwitchOverlay:
+  Title: ~Chill~ Twitch Stream Modding
+  Notification: andpeterson went live! Let's develop some web frameworks for the stream!
+  Category: Science & Technology
+  Tags: Programming, Educational, Software Development, Web Development
+  Panels:
+    Who is andpeterson:
+I'm a software developer by trade. I mostly develop web applications using JS.
+
+I've also played around with a ton of other technologies including Arduino, Unity, VR Development, Cloud Computing, IOT, ect...
+    Stream Description: 
+I'm keeping my mic off for my roommate 🤫 so feel free to say Hi in the chat! 👋
+
+If you have any mod suggestions or ideas I'd love to hear them! 📢
+
+I've been on the lookout for stream overlays, if you see any designs that you think would fit this channel I'd love to see them.
+
+Music is provided by [ChilledCow](https://www.youtube.com/watch?v=5qap5aO4i9A)
+    Plan: 
+The stream is going to get a huge overhaul 💪
+I'll be working on revamping the overlay 📺
+Some backend logic and making a stream dashboard ▶️
+I'm also hopefully get some bots going for the stream as well 🤖
+    Progress:
+## Setup
+- Backend 🖥️
+  ✔️ Express (HTTP)
+  ❌ SocketIO (Websocket)
+  ❌ Redis
+- UI 🌐
+  ✔️ Preact
+  ❌ Less
+## Stream Overlay
+- Music 🎵
+  ❌ Convert to preact
+  ❌ Spacing
+  ❌ Websocket (Currently Playing)
+- Current Task Overlay ☑️
+  ✔️ Render current Task
+  ❌ Background & Spacing
+  ❌ Task Completed animation
+  ❌ Fade between tasks
+  ❌ Websocket
+  ❌ UI
+- Follow Popup 👀
+  ❌ Open & Close toast on command
+  ❌ Add text + spacing
+  ❌ Add fade animations
+  ❌ Websocket
+  ❌ UI
+## Steamer Dashboard
+- Todo list ☑️
+  ❌ Mark completed
+  ❌ Switch Task
+- Chat Notification 📢
+  ❌ Notify streamer of new chat
+## NodeJS
+  ❌ Redis API
+  ❌ Overlay API
+  ❌ Dashboard API
+  ❌ Twitch API
+## REDIS
+  ❌ ?
+## Twitch
+  ❌ Panel header images
+  ❌ Configure todo list extension
+  ❌ [PubSub](https://dev.twitch.tv/docs/pubsub)
+  ❌ Bots
+## Route through Azure or AWS
