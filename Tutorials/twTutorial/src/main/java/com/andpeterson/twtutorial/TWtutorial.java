@@ -4,6 +4,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,7 +22,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.andpeterson.twtutorial.init.BiomeInit;
 import com.andpeterson.twtutorial.init.BlockInit;
+import com.andpeterson.twtutorial.init.DimensionInit;
 import com.andpeterson.twtutorial.init.ItemInit;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
 import com.andpeterson.twtutorial.init.NewBlockInit;
@@ -35,6 +38,7 @@ public class TWtutorial
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "twtutorial";
     public static TWtutorial instance;
+    public static final ResourceLocation EXAMPLE_DIM_TYPE = new ResourceLocation(MOD_ID, "example");
 
     public TWtutorial() {
     	final IEventBus modEventBus =  FMLJavaModLoadingContext.get().getModEventBus();
@@ -45,6 +49,8 @@ public class TWtutorial
     	
     	NewItemInit.ITEMS.register(modEventBus);
     	NewBlockInit.BLOCKS.register(modEventBus);
+    	BiomeInit.BIOMES.register(modEventBus);
+    	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
         
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
