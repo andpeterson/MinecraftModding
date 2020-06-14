@@ -2,6 +2,7 @@ package com.andpeterson.twtutorial.init;
 
 import com.andpeterson.twtutorial.TWtutorial;
 import com.andpeterson.twtutorial.objects.blocks.BlockQuarry;
+import com.andpeterson.twtutorial.objects.blocks.ExampleChestBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModPressurePlateBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModWoodButtonBlock;
 
@@ -27,9 +28,10 @@ public class NewBlockInit {
 	
 	public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 15.0f).sound(SoundType.STONE)));
 	public static final RegistryObject<Block> DEF_BLOCK = BLOCKS.register("def_block", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<BlockQuarry> QUARRY_BLOCK = BLOCKS.register("quarry", () -> new BlockQuarry(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> QUARRY_BLOCK = BLOCKS.register("quarry", () -> new BlockQuarry(Block.Properties.create(Material.IRON)));
 	public static final RegistryObject<Block> EXAMPLE_STAIRS = BLOCKS.register("example_stairs", () -> new StairsBlock(()-> NewBlockInit.EXAMPLE_BLOCK.get().getDefaultState(), Block.Properties.create(Material.SAND)));
 	public static final RegistryObject<Block> EXAMPLE_FENCE = BLOCKS.register("example_fence", () -> new FenceBlock(Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_BUTTON = BLOCKS.register("example_button", () -> new ModWoodButtonBlock(Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_PRESSURE_PLATE = BLOCKS.register("example_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.EVERYTHING, Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
+	public static final RegistryObject<Block> EXAMPLE_CHEST = BLOCKS.register("example_chest", () -> new ExampleChestBlock(Block.Properties.from(NewBlockInit.EXAMPLE_BLOCK.get())));
 }

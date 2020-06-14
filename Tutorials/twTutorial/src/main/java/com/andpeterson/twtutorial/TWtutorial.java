@@ -26,6 +26,7 @@ import com.andpeterson.twtutorial.init.BiomeInit;
 import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.DimensionInit;
 import com.andpeterson.twtutorial.init.ItemInit;
+import com.andpeterson.twtutorial.init.ModContainerTypes;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
 import com.andpeterson.twtutorial.init.NewBlockInit;
 import com.andpeterson.twtutorial.init.NewItemInit;
@@ -45,10 +46,12 @@ public class TWtutorial
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
     	
-    	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
-    	
     	NewItemInit.ITEMS.register(modEventBus);
     	NewBlockInit.BLOCKS.register(modEventBus);
+    	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+    	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
+    	
+    	
     	BiomeInit.BIOMES.register(modEventBus);
     	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
         
