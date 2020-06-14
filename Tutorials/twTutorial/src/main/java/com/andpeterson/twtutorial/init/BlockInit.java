@@ -25,7 +25,6 @@ public class BlockInit {
 	//public static final Block example_block = null;
 	// https://www.youtube.com/watch?v=taUfaVwDiyI - Custom Block Models
 	public static final Block special_block = null;
-	public static final Block quarry = null;
 	//@@Define
 	
 	@SubscribeEvent
