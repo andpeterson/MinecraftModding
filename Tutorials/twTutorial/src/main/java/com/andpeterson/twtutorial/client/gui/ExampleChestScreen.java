@@ -51,7 +51,7 @@ public class ExampleChestScreen extends ContainerScreen<ExampleChestContainer> {
 		// RGBA
 		RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
 		this.minecraft.getTextureManager().bindTexture(BACKGROUND_TEXTURE);
-		int x = (this.width = this.xSize) / 2;
+		int x = (this.width - this.xSize) / 2;
 		int y = (this.height - this.ySize) / 2;
 		this.blit(x, y, 0, 0, this.xSize, this.ySize);
 	}
