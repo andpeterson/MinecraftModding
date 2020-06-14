@@ -1,7 +1,6 @@
 package com.andpeterson.twtutorial.tileentity;
 
 import javax.annotation.Nonnull;
-import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
 
 import com.andpeterson.twtutorial.container.ExampleChestContainer;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
@@ -38,7 +37,6 @@ public class ExampleChestTileEntity extends LockableLootTileEntity{
 	
 	public ExampleChestTileEntity(TileEntityType<?> typeIn) {
 		super(typeIn);
-		// TODO Auto-generated constructor stub
 	}
 	private NonNullList<ItemStack> chestContents = NonNullList.withSize(SIZE, ItemStack.EMPTY);
 	protected int numPlayerUsing;
@@ -60,7 +58,7 @@ public class ExampleChestTileEntity extends LockableLootTileEntity{
 	}
 	
 	@Override
-	protected void setItems(NonNullList<ItemStack> itemsIn) {
+	public void setItems(NonNullList<ItemStack> itemsIn) {
 		this.chestContents = itemsIn;
 	}
 	
@@ -92,7 +90,7 @@ public class ExampleChestTileEntity extends LockableLootTileEntity{
 		}
 	}
 	
-	public void playSound(SoundEvent sound) {
+	private void playSound(SoundEvent sound) {
 		double dx = (double)this.pos.getX() + 0.5D;
 		double dy = (double)this.pos.getY() + 0.5D;
 		double dz = (double)this.pos.getZ() + 0.5D;
@@ -130,7 +128,7 @@ public class ExampleChestTileEntity extends LockableLootTileEntity{
 		}
 	}
 	
-	private void onOpenOrClose() {
+	protected void onOpenOrClose() {
 		Block block = this.getBlockState().getBlock();
 		if(block instanceof ExampleChestBlock) {
 			this.world.addBlockEvent(this.pos, block, 1, this.numPlayerUsing);
@@ -149,7 +147,7 @@ public class ExampleChestTileEntity extends LockableLootTileEntity{
 		return 0;
 	}
 	
-	public void swapContents(ExampleChestTileEntity te, ExampleChestTileEntity otherTe) {
+	public static void swapContents(ExampleChestTileEntity te, ExampleChestTileEntity otherTe) {
 		NonNullList<ItemStack> list = te.getItems();
 		te.setItems(otherTe.getItems());
 		otherTe.setItems(list);

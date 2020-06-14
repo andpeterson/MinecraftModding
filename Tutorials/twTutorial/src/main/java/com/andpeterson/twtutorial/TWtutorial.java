@@ -46,8 +46,6 @@ public class TWtutorial
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
     	
-    	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
-    	
     	NewItemInit.ITEMS.register(modEventBus);
     	NewBlockInit.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
