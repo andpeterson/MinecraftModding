@@ -2,6 +2,7 @@ package com.andpeterson.twtutorial.init;
 
 import com.andpeterson.twtutorial.TWtutorial;
 import com.andpeterson.twtutorial.objects.blocks.BlockQuarry;
+import com.andpeterson.twtutorial.objects.blocks.ExampleChestBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModPressurePlateBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModWoodButtonBlock;
 
@@ -32,4 +33,5 @@ public class NewBlockInit {
 	public static final RegistryObject<Block> EXAMPLE_FENCE = BLOCKS.register("example_fence", () -> new FenceBlock(Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_BUTTON = BLOCKS.register("example_button", () -> new ModWoodButtonBlock(Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_PRESSURE_PLATE = BLOCKS.register("example_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.EVERYTHING, Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
+	public static final RegistryObject<Block> EXAMPLE_CHEST = BLOCKS.register("example_chest", () -> new ExampleChestBlock(Block.Properties.from(NewBlockInit.EXAMPLE_BLOCK.get())));
 }

@@ -20,5 +20,8 @@
 
 	"block.twtutorial.example_block": "Example Block",
 	"block.twtutorial.special_block": "Special Block",
-	"block.twtutorial.quarry": "Quarry"
+	"block.twtutorial.quarry": "Quarry",
+	"block.twtutorial.example_chest": "Example Chest",
+	
+	"container.example_chest": "Example Chest Container"
 }
