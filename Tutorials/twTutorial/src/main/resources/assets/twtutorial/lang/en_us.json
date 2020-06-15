@@ -22,6 +22,10 @@
 	"block.twtutorial.special_block": "Special Block",
 	"block.twtutorial.quarry": "Quarry",
 	"block.twtutorial.example_chest": "Example Chest",
+	"block.twtutorial.jazz_planks": "Jazz Planks",
+	"block.twtutorial.jazz_log": "Jazz Log",
+	"block.twtutorial.jazz_leaves": "Jazz Leaves",
+	"block.twtutorial.jazz_sapling": "Jazz Sapling",
 	
 	"container.example_chest": "Example Chest Container"
 }

@@ -4,10 +4,14 @@ import com.andpeterson.twtutorial.TWtutorial;
 import com.andpeterson.twtutorial.objects.blocks.BlockQuarry;
 import com.andpeterson.twtutorial.objects.blocks.ExampleChestBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModPressurePlateBlock;
+import com.andpeterson.twtutorial.objects.blocks.ModSaplingBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModWoodButtonBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.LogBlock;
 import net.minecraft.block.PressurePlateBlock.Sensitivity;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.StairsBlock;
@@ -34,4 +38,8 @@ public class NewBlockInit {
 	public static final RegistryObject<Block> EXAMPLE_BUTTON = BLOCKS.register("example_button", () -> new ModWoodButtonBlock(Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_PRESSURE_PLATE = BLOCKS.register("example_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.EVERYTHING, Block.Properties.create(Material.SAND, MaterialColor.GOLD)));
 	public static final RegistryObject<Block> EXAMPLE_CHEST = BLOCKS.register("example_chest", () -> new ExampleChestBlock(Block.Properties.from(NewBlockInit.EXAMPLE_BLOCK.get())));
+	public static final RegistryObject<Block> JAZZ_PLANKS = BLOCKS.register("jazz_planks", () -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)));
+	public static final RegistryObject<Block> JAZZ_LOG = BLOCKS.register("jazz_log", () -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> JAZZ_LEAVES = BLOCKS.register("jazz_leaves", () -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	public static final RegistryObject<Block> JAZZ_SAPLING = BLOCKS.register("jazz_sapling", () -> new ModSaplingBlock(null, Block.Properties.from(Blocks.OAK_SAPLING)));
 }
