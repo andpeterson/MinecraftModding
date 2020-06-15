@@ -6,6 +6,7 @@ import com.andpeterson.twtutorial.objects.blocks.ExampleChestBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModPressurePlateBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModSaplingBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModWoodButtonBlock;
+import com.andpeterson.twtutorial.objects.blocks.SpecialBlock;
 import com.andpeterson.twtutorial.world.feature.JazzTree;
 
 import net.minecraft.block.Block;
@@ -18,6 +19,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,8 +32,8 @@ public class NewBlockInit {
 //		// https://www.youtube.com/watch?v=taUfaVwDiyI - Custom Block Models
 //		public static final Block special_block = null;
 //		//@@Define
-	
 	public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 15.0f).sound(SoundType.STONE)));
+	public static final RegistryObject<Block> SPECIAL_BLOCK = BLOCKS.register("special_block", () -> new SpecialBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 10.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).lightValue(4).slipperiness(1.2f).speedFactor(0.7f).noDrops()));
 	public static final RegistryObject<Block> DEF_BLOCK = BLOCKS.register("def_block", () -> new Block(Block.Properties.create(Material.IRON)));
 	public static final RegistryObject<Block> QUARRY_BLOCK = BLOCKS.register("quarry", () -> new BlockQuarry(Block.Properties.create(Material.IRON)));
 	public static final RegistryObject<Block> EXAMPLE_STAIRS = BLOCKS.register("example_stairs", () -> new StairsBlock(()-> NewBlockInit.EXAMPLE_BLOCK.get().getDefaultState(), Block.Properties.create(Material.SAND)));
@@ -43,4 +45,5 @@ public class NewBlockInit {
 	public static final RegistryObject<Block> JAZZ_LOG = BLOCKS.register("jazz_log", () -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> JAZZ_LEAVES = BLOCKS.register("jazz_leaves", () -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> JAZZ_SAPLING = BLOCKS.register("jazz_sapling", () -> new ModSaplingBlock(() -> new JazzTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
+
 }

@@ -1,6 +1,5 @@
 package com.andpeterson.twtutorial.world.gen;
 
-import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.NewBlockInit;
 
 import net.minecraft.world.biome.Biome;

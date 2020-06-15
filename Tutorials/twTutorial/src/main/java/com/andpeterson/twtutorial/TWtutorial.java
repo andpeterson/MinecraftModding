@@ -23,9 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.andpeterson.twtutorial.init.BiomeInit;
-import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.DimensionInit;
-import com.andpeterson.twtutorial.init.ItemInit;
 import com.andpeterson.twtutorial.init.ModContainerTypes;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
 import com.andpeterson.twtutorial.init.NewBlockInit;
@@ -101,7 +99,7 @@ public class TWtutorial
     	
     	@Override
     	public ItemStack createIcon() {
-    		return new ItemStack(ItemInit.AndpetersonTablet);
+    		return new ItemStack(NewItemInit.ANDPETERSON_TABLET.get());
     	}
     }
     //@@DefineItemGroup

@@ -2,7 +2,6 @@ package com.andpeterson.twtutorial.objects.items;
 
 import java.util.List;
 
-import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.NewBlockInit;
 import com.andpeterson.twtutorial.util.helpers.keyboardHelper;
 
