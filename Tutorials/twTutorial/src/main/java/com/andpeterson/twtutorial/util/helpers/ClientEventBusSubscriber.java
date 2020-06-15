@@ -3,7 +3,7 @@ package com.andpeterson.twtutorial.util.helpers;
 import com.andpeterson.twtutorial.TWtutorial;
 import com.andpeterson.twtutorial.client.gui.ExampleChestScreen;
 import com.andpeterson.twtutorial.init.ModContainerTypes;
-import com.andpeterson.twtutorial.init.NewBlockInit;
+import com.andpeterson.twtutorial.init.BlockInit;
 
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
@@ -20,6 +20,6 @@ public class ClientEventBusSubscriber {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		ScreenManager.registerFactory(ModContainerTypes.EXAMPLE_CHEST.get(), ExampleChestScreen::new);
-		RenderTypeLookup.setRenderLayer(NewBlockInit.JAZZ_SAPLING.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockInit.JAZZ_SAPLING.get(), RenderType.getCutout());
 	}
 }

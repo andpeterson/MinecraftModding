@@ -3,7 +3,7 @@ package com.andpeterson.twtutorial.container;
 import java.util.Objects;
 
 import com.andpeterson.twtutorial.init.ModContainerTypes;
-import com.andpeterson.twtutorial.init.NewBlockInit;
+import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.tileentity.ExampleChestTileEntity;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -75,7 +75,7 @@ public class ExampleChestContainer extends Container {
 	
 	@Override
 	public boolean canInteractWith(PlayerEntity playerIn) {
-		return isWithinUsableDistance(canInteractWithCallable, playerIn, NewBlockInit.EXAMPLE_CHEST.get());
+		return isWithinUsableDistance(canInteractWithCallable, playerIn, BlockInit.EXAMPLE_CHEST.get());
 	}
 	
 	@Override

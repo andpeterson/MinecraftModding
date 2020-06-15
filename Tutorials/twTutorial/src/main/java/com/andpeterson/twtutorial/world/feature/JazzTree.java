@@ -2,7 +2,7 @@ package com.andpeterson.twtutorial.world.feature;
 
 import java.util.Random;
 
-import com.andpeterson.twtutorial.init.NewBlockInit;
+import com.andpeterson.twtutorial.init.BlockInit;
 
 import net.minecraft.block.trees.Tree;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -16,14 +16,14 @@ public class JazzTree extends Tree {
 	
 	public static final TreeFeatureConfig JAZZ_TREE_CONFIG = (
 			new TreeFeatureConfig.Builder(
-					new SimpleBlockStateProvider(NewBlockInit.JAZZ_LOG.get().getDefaultState()),
-					new SimpleBlockStateProvider(NewBlockInit.JAZZ_LEAVES.get().getDefaultState()),
+					new SimpleBlockStateProvider(BlockInit.JAZZ_LOG.get().getDefaultState()),
+					new SimpleBlockStateProvider(BlockInit.JAZZ_LEAVES.get().getDefaultState()),
 					new BlobFoliagePlacer(3, 0))
 			).baseHeight(5)
 			.heightRandA(7)
 			.foliageHeight(3)
 			.ignoreVines()
-			.setSapling((IPlantable) NewBlockInit.JAZZ_SAPLING.get())
+			.setSapling((IPlantable) BlockInit.JAZZ_SAPLING.get())
 			.build();
 
 	@Override

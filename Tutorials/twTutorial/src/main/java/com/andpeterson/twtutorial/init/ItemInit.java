@@ -32,25 +32,8 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class NewItemInit {
+public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, TWtutorial.MOD_ID);
-	
-//	//Define Items
-//		public static final Item itemOne = null;
-//		public static final Item itemTwo = null;
-//		public static final Item AndpetersonTablet = null;
-//		public static final Item NewItemEight = null;
-//		public static final Item ExampleFood = null;
-//		public static final Item SpecialItem = null;
-//		
-//		//Tools
-//		public static final Item ExampleSword = null;
-//		public static final Item ExamplePickax = null;
-//		public static final Item ExampleShavel = null;
-//		public static final Item ExampleAx = null;
-//		public static final Item ExampleHoe = null;
-//		public static final Item NewToolName = null;
-//		//@@Define
 	
 	public static final RegistryObject<SpecialItem> DEF_ITEMS = ITEMS.register("def_item", () -> new SpecialItem(new Item.Properties().group(TWtutorialItemGroup.instance)));
 	
@@ -80,7 +63,7 @@ public class NewItemInit {
 		
 		// int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial
 		EXAMPLE(4, 1500, 15.0F, 7.0F, 250, () -> {
-			return Ingredient.fromItems(NewItemInit.ITEM_ONE.get());
+			return Ingredient.fromItems(ItemInit.ITEM_ONE.get());
 		});
 		private final int harvestLevel;
 		private final int maxUses;
@@ -139,7 +122,7 @@ public class NewItemInit {
 	public enum ModArmorMaterial implements IArmorMaterial {
 		// name, max_dmg_factor, dmg_reduction_amt, 
 		TEST(TWtutorial.MOD_ID + ":test", 5, new int[] { 7, 9, 11, 7 }, 420, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 6.9F, () -> {
-			return Ingredient.fromItems(NewItemInit.ITEM_ONE.get());
+			return Ingredient.fromItems(ItemInit.ITEM_ONE.get());
 		});
 		
 		private static final int[] MAX_DAMAGE_ARRAY = new int[] {16,16,16,16};
