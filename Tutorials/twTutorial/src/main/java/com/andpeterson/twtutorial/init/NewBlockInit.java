@@ -6,6 +6,7 @@ import com.andpeterson.twtutorial.objects.blocks.ExampleChestBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModPressurePlateBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModSaplingBlock;
 import com.andpeterson.twtutorial.objects.blocks.ModWoodButtonBlock;
+import com.andpeterson.twtutorial.world.feature.JazzTree;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -41,5 +42,5 @@ public class NewBlockInit {
 	public static final RegistryObject<Block> JAZZ_PLANKS = BLOCKS.register("jazz_planks", () -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)));
 	public static final RegistryObject<Block> JAZZ_LOG = BLOCKS.register("jazz_log", () -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> JAZZ_LEAVES = BLOCKS.register("jazz_leaves", () -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
-	public static final RegistryObject<Block> JAZZ_SAPLING = BLOCKS.register("jazz_sapling", () -> new ModSaplingBlock(null, Block.Properties.from(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> JAZZ_SAPLING = BLOCKS.register("jazz_sapling", () -> new ModSaplingBlock(() -> new JazzTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
 }
