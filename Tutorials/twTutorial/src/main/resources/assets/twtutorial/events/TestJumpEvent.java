@@ -1,7 +1,6 @@
 package assets.twtutorial.events;
 
 import com.andpeterson.twtutorial.TWtutorial;
-import com.andpeterson.twtutorial.init.BlockInit;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;

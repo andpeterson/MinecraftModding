@@ -19,6 +19,7 @@ import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -27,64 +28,42 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-
-@Mod.EventBusSubscriber(modid = TWtutorial.MOD_ID, bus = Bus.MOD)
-@ObjectHolder(TWtutorial.MOD_ID)
 public class ItemInit {
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, TWtutorial.MOD_ID);
 	
-	//Define Items
-	public static final Item itemOne = null;
-	public static final Item itemTwo = null;
-	public static final Item AndpetersonTablet = null;
-	public static final Item NewItemEight = null;
-	public static final Item ExampleFood = null;
-	public static final Item SpecialItem = null;
+	public static final RegistryObject<SpecialItem> DEF_ITEMS = ITEMS.register("def_item", () -> new SpecialItem(new Item.Properties().group(TWtutorialItemGroup.instance)));
 	
-	//Tools
-	public static final Item ExampleSword = null;
-	public static final Item ExamplePickax = null;
-	public static final Item ExampleShavel = null;
-	public static final Item ExampleAx = null;
-	public static final Item ExampleHoe = null;
-	public static final Item NewToolName = null;
-	//@@Define
+	// Items
+	public static final RegistryObject<Item> ITEM_ONE = ITEMS.register("item_one", () -> new Item(new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> ITEM_TWO = ITEMS.register("item_two", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> ANDPETERSON_TABLET = ITEMS.register("andpeterson_tablet", () -> new Item(new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> EXAMPLE_FOOD = ITEMS.register("example_food", () -> new Item(new Item.Properties().group(TWtutorialItemGroup.instance).food(new Food.Builder().hunger(6).saturation(1.2f).effect(new EffectInstance(Effects.ABSORPTION, 6000, 5), 0.7f).build())));
+	public static final RegistryObject<Item> SPECIAL_ITEM = ITEMS.register("special_item", () -> new SpecialItem(new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> NEW_TOOL_NAME = ITEMS.register("new_tool_name", () -> new SpecialItem(new Item.Properties().group(TWtutorialItemGroup.instance)));
 	
-	@SubscribeEvent
-	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		//Register Items
-		event.getRegistry().register(new Item(new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("item_one"));
-		event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("item_two"));
-		event.getRegistry().register(new Item(new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("andpeterson_tablet"));
-		event.getRegistry().register(new Item(new Item.Properties().group(TWtutorialItemGroup.instance).food(new Food.Builder().hunger(6).saturation(1.2f).effect(new EffectInstance(Effects.ABSORPTION, 6000, 5), 0.7f).build())).setRegistryName("example_food"));
-		event.getRegistry().register(new SpecialItem(new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("special_item"));
-		
-		//Tools
-		event.getRegistry().register(new SwordItem(ModItemTier.EXAMPLE, 7, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("example_sword"));
-		event.getRegistry().register(new PickaxeItem(ModItemTier.EXAMPLE, 4, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("example_pickaxe"));
-		event.getRegistry().register(new ShovelItem(ModItemTier.EXAMPLE, 2, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("example_shovel"));
-		event.getRegistry().register(new AxeItem(ModItemTier.EXAMPLE, 11, 2.5F, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("example_axe"));
-		event.getRegistry().register(new HoeItem(ModItemTier.EXAMPLE, 5.0f, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("example_hoe"));
-		event.getRegistry().register(new SwordItem(ItemTier.WOOD, 1, 1.0F, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("new_tool_name"));
-		
-		// Armor
-		event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.HEAD, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("test_helmet"));
-		event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.CHEST, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("test_chestplate"));
-		event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.LEGS, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("test_leggings"));
-		event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.FEET, new Item.Properties().group(TWtutorialItemGroup.instance)).setRegistryName("test_boots"));
-		//@@Register
-	}
+	// Tools
+	public static final RegistryObject<Item> EXAMPLE_SWORD = ITEMS.register("example_sword", () -> new SwordItem(ModItemTier.EXAMPLE, 7, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> EXAMPLE_PICKAXE = ITEMS.register("example_pickaxe", () -> new PickaxeItem(ModItemTier.EXAMPLE, 4, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> EXAMPLE_SHOVEL = ITEMS.register("example_shovel", () -> new ShovelItem(ModItemTier.EXAMPLE, 2, 3.5F, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> EXAMPLE_AXE = ITEMS.register("example_axe", () -> new AxeItem(ModItemTier.EXAMPLE, 11, 2.5F, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> EXAMPLE_HOE = ITEMS.register("example_hoe", () -> new HoeItem(ModItemTier.EXAMPLE, 5.0f, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	
+	// Armor
+	public static final RegistryObject<Item> TEST_HELMET = ITEMS.register("test_helmet", () -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.HEAD, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> TEST_CHESTPLATE = ITEMS.register("test_chestplate", () -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.CHEST, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> TEST_LEGGINGS = ITEMS.register("test_leggings", () -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.LEGS, new Item.Properties().group(TWtutorialItemGroup.instance)));
+	public static final RegistryObject<Item> TEST_BOOTS = ITEMS.register("test_boots", () -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.FEET, new Item.Properties().group(TWtutorialItemGroup.instance)));
+
 	
 	public enum ModItemTier implements IItemTier {
 		
 		// int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial
 		EXAMPLE(4, 1500, 15.0F, 7.0F, 250, () -> {
-			return Ingredient.fromItems(ItemInit.itemOne);
+			return Ingredient.fromItems(ItemInit.ITEM_ONE.get());
 		});
 		private final int harvestLevel;
 		private final int maxUses;
@@ -143,7 +122,7 @@ public class ItemInit {
 	public enum ModArmorMaterial implements IArmorMaterial {
 		// name, max_dmg_factor, dmg_reduction_amt, 
 		TEST(TWtutorial.MOD_ID + ":test", 5, new int[] { 7, 9, 11, 7 }, 420, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 6.9F, () -> {
-			return Ingredient.fromItems(ItemInit.itemOne);
+			return Ingredient.fromItems(ItemInit.ITEM_ONE.get());
 		});
 		
 		private static final int[] MAX_DAMAGE_ARRAY = new int[] {16,16,16,16};

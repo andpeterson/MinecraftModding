@@ -2,15 +2,13 @@ package com.andpeterson.twtutorial.container;
 
 import java.util.Objects;
 
-import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.ModContainerTypes;
-import com.andpeterson.twtutorial.init.NewBlockInit;
+import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.tileentity.ExampleChestTileEntity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
@@ -77,7 +75,7 @@ public class ExampleChestContainer extends Container {
 	
 	@Override
 	public boolean canInteractWith(PlayerEntity playerIn) {
-		return isWithinUsableDistance(canInteractWithCallable, playerIn, NewBlockInit.EXAMPLE_CHEST.get());
+		return isWithinUsableDistance(canInteractWithCallable, playerIn, BlockInit.EXAMPLE_CHEST.get());
 	}
 	
 	@Override

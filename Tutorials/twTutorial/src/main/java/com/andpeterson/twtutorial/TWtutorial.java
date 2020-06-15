@@ -23,13 +23,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.andpeterson.twtutorial.init.BiomeInit;
-import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.DimensionInit;
-import com.andpeterson.twtutorial.init.ItemInit;
 import com.andpeterson.twtutorial.init.ModContainerTypes;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
-import com.andpeterson.twtutorial.init.NewBlockInit;
-import com.andpeterson.twtutorial.init.NewItemInit;
+import com.andpeterson.twtutorial.init.BlockInit;
+import com.andpeterson.twtutorial.init.ItemInit;
 import com.andpeterson.twtutorial.world.gen.TutorialOreGen;
 
 @Mod("twtutorial")
@@ -46,8 +44,8 @@ public class TWtutorial
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
     	
-    	NewItemInit.ITEMS.register(modEventBus);
-    	NewBlockInit.BLOCKS.register(modEventBus);
+    	ItemInit.ITEMS.register(modEventBus);
+    	BlockInit.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
     	
@@ -69,7 +67,7 @@ public class TWtutorial
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
     	final IForgeRegistry<Item> registry = event.getRegistry();
     	
-    	NewBlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+    	BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
     		final Item.Properties properties = new Item.Properties().group(TWtutorialItemGroup.instance);
     		final BlockItem blockItem = new BlockItem(block, properties);
     		blockItem.setRegistryName(block.getRegistryName());
@@ -101,7 +99,7 @@ public class TWtutorial
     	
     	@Override
     	public ItemStack createIcon() {
-    		return new ItemStack(ItemInit.AndpetersonTablet);
+    		return new ItemStack(ItemInit.ANDPETERSON_TABLET.get());
     	}
     }
     //@@DefineItemGroup

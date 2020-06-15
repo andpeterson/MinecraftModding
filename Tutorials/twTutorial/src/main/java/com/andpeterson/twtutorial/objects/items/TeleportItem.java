@@ -2,7 +2,7 @@ package com.andpeterson.twtutorial.objects.items;
 
 import java.util.List;
 
-import com.andpeterson.twtutorial.init.NewBlockInit;
+import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.world.dimension.ExampleDimension;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -41,7 +41,7 @@ public class TeleportItem extends Item{
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
 		//entity.getEntityWorld().setBlockState(entity.getPosition().down(), BlockInit.example_block.getDefaultState());
-		entity.getEntityWorld().setBlockState(entity.getPosition().down(), NewBlockInit.EXAMPLE_BLOCK.get().getDefaultState());
+		entity.getEntityWorld().setBlockState(entity.getPosition().down(), BlockInit.EXAMPLE_BLOCK.get().getDefaultState());
 		return super.onEntityItemUpdate(stack, entity);
 	}
 	
