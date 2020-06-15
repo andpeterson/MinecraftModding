@@ -41,22 +41,23 @@ public class ExampleChestContainer extends Container {
 		}
 		
 		//Main Player Inventory
-		int startPlayerInvY = startY * 5 + 12; //should probably base this off of slotSize
+		int playerInvY = startY * 5 + 12; //should probably base this off of slotSize
 		for(int row = 0; row < 3; ++row) {
 			for(int col = 0; col < 9; ++col) {
 				int index = 9 + (row * 9) + col;
 				int posX = startX + (col * slotSize);
-				int posY = startY + (row * slotSize);
+				int posY = playerInvY + (row * slotSize);
 				this.addSlot(new Slot(playerInventory, index, posX, posY));
 			}
 		}
 		
 		//Hotbar Inventory
-		int hotbarY = startPlayerInvY + (startPlayerInvY / 2) + 7;
+		int hotbarY = playerInvY + (playerInvY / 2) + 7;
 		for(int col = 0; col < 9; ++col) {
-			int index = startX + (col * slotSize);
+			int index = col;
 			int posX = startX + (col * slotSize);
-			this.addSlot(new Slot(playerInventory, index, posX, hotbarY));
+			int posY = hotbarY;
+			this.addSlot(new Slot(playerInventory, index, posX, posY));
 		}
 	}
 	
