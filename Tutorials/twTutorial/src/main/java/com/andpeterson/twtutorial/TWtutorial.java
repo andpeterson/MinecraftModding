@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import com.andpeterson.twtutorial.init.BiomeInit;
 import com.andpeterson.twtutorial.init.DimensionInit;
 import com.andpeterson.twtutorial.init.ModContainerTypes;
+import com.andpeterson.twtutorial.init.ModEntityTypes;
 import com.andpeterson.twtutorial.init.ModTileEntityTypes;
 import com.andpeterson.twtutorial.init.BlockInit;
 import com.andpeterson.twtutorial.init.ItemInit;
@@ -48,6 +49,7 @@ public class TWtutorial
     	BlockInit.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
+    	ModEntityTypes.ENTITY_TYPES.register(modEventBus);
     	
     	
     	BiomeInit.BIOMES.register(modEventBus);

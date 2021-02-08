@@ -1,0 +1,19 @@
+
+modLoader="javafml"
+loaderVersion="[35,)"
+license="All rights reserved"
+issueTrackerURL="https://github.com/andpeterson/MinecraftModding/issues"
+
+[[mods]]
+modId="twtutorial16"
+version="1.0"
+displayName="Tw Tutorial 16"
+updateJSONURL="https://github.com/andpeterson/MinecraftModding/" #???
+displayURL="https://github.com/andpeterson/MinecraftModding/"
+logoFile="logo.png"
+credits="Thanks for the guiding hand TurtyWurty"
+authors="andpeterson"
+description='''
+A tutorial mod built by andpeterson following 
+TurtyWurty's tutorial
+'''

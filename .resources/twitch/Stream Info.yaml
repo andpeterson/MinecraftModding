@@ -1,3 +1,32 @@
+RottenFleshStew:
+  Title: ~Chill~ Minecraft Modding | Rotten Flesh Stew
+  Notification: andpeterson went live! Coming back to make some wretched rotten flesh stew 🤮
+  Category: Science & Technology
+  Panels:
+    Who is andpeterson:
+I'm a software developer by trade. I mostly develop web applications using JS.
+
+I've also played around with a ton of other technologies including Arduino, Unity, VR Development, Cloud Computing, IOT, ect...
+    Stream Description: 
+I'm keeping my mic off for my roommate 🤫 so feel free to say Hi in the chat! 👋
+
+If you have any mod suggestions or ideas I'd love to hear them! 📢
+
+I've been on the lookout for stream overlays, if you see any designs that you think would fit this channel I'd love to see them.
+
+Music is provided by [ChilledCow](https://www.youtube.com/watch?v=5qap5aO4i9A)
+    Plan: 
+Rotten Flesh Stew is the type of meal that one only makes out of pure desipration ☠️
+
+It's putrid contents may temporarily satiate your hunger for a bit. But would you be willing to risk your health for that?
+    Progress:
+❌ Create new project 📂
+❌ Create new texture 🎨
+❌ Create New Item 🥣
+❌ Create New Recipe 🍳
+❌ Create Eating logic 😋
+
+
 MythrilOre:
   Title: ~Chill~ Minecraft Modding | Mythril Ore
   Notification: andpeterson went live! Lets defend ourselves with Mythril Armor!!
@@ -30,7 +59,7 @@ But the ore will only last an hour after being mined before it disappears!😨
 ✔️ Armor crafting recipes 👷
 ❌ Disappear logic ☁️
 ❌ Transfer timer on crafting ⌚
-✔️ Mythril Torches 💡
+✔️ Mythril Torches (Probably remove this) 💡
 ❌ Mythril Block (why would you even craft this) 🌟
 
 TwitchOverlay:
@@ -59,12 +88,12 @@ I'm also hopefully get some bots going for the stream as well 🤖
     Progress:
 ## Setup
 - Backend 🖥️
-  ✔️ Express (HTTP)
-  ❌ SocketIO (Websocket)
-  ❌ Redis
+❌ Express (HTTP)
+❌ SocketIO (Websocket)
+❌ Redis
 - UI 🌐
-  ✔️ Preact
-  ❌ Less
+✔️ Preact
+❌ Less
 ## Stream Overlay
 - Music 🎵
   ❌ Convert to preact
