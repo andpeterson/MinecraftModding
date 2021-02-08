@@ -5,7 +5,7 @@ license="All rights reserved"
 issueTrackerURL="https://github.com/andpeterson/MinecraftModding/issues"
 
 [[mods]]
-modId="twtutorial16"
+modId="twtutorial"
 version="1.0"
 displayName="Tw Tutorial 16"
 updateJSONURL="https://github.com/andpeterson/MinecraftModding/" #???
