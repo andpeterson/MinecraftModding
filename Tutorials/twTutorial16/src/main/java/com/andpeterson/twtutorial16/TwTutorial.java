@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -16,17 +17,21 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.andpeterson.twtutorial16.core.init.ItemInit;
+
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("twtutorial16")
-public class TwTutorial
-{
-    // Directly reference a log4j logger.
+@Mod(TwTutorial.MOD_ID)
+public class TwTutorial {
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final String MOD_ID = "twtutorial";
 
     public TwTutorial() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    	IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        bus.addListener(this::setup);
+        
+        ItemInit.ITEMS.register(bus);
         
         MinecraftForge.EVENT_BUS.register(this);
     }
