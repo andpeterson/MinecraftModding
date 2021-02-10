@@ -1,3 +1,4 @@
 {
-  "items.twtutorial.example_item": "Example Item"
+  "item.twtutorial.example_item": "Example Item",
+  "block.twtutorial.example_block": "Example Block"
 }

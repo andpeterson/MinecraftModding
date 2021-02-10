@@ -17,6 +17,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.andpeterson.twtutorial16.core.init.BlockInit;
 import com.andpeterson.twtutorial16.core.init.ItemInit;
 
 import java.util.stream.Collectors;
@@ -32,6 +33,7 @@ public class TwTutorial {
         bus.addListener(this::setup);
         
         ItemInit.ITEMS.register(bus);
+        BlockInit.BLOCKS.register(bus);
         
         MinecraftForge.EVENT_BUS.register(this);
     }
