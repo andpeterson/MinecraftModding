@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "twtutorial:block/custom_block" },
+    "facing=south": { "model": "twtutorial:block/custom_block", "y": 180},
+    "facing=east": { "model": "twtutorial:block/custom_block", "y": 270 },
+    "facing=west": { "model": "twtutorial:block/custom_block", "y": 90 }
+  }
+}

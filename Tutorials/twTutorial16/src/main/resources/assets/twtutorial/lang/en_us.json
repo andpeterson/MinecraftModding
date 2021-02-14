@@ -1,4 +1,7 @@
 {
   "item.twtutorial.example_item": "Example Item",
-  "block.twtutorial.example_block": "Example Block"
+  "item.twtutorial.special_item": "Special Item",
+  "block.twtutorial.example_block": "Example Block",
+  "block.twtutorial.custom_block": "Custom Block",
+  "tooltip.special_item.hold_shift": "Hold \u00A7eShift\u00A77 for More Information"
 }
